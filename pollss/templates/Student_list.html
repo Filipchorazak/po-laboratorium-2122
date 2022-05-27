@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1> Student </h1>
+
+    {% for Student in object_list %}
+        <li>{{Student.nazwa }}</li>
+    {% empty %}
+        <li>No Student yet.</li>
+    {% endfor %}
+</body>
+</html>

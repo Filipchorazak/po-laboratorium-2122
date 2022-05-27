@@ -2,14 +2,16 @@ from operator import truediv
 from django.db import models
 
 class Student(models.Model):
-    nazwa = models.CharField(max_length=30)
+    nazwa = models.CharField(max_length=90)
+    Wiek = models.TextField(blank=True)
+    dataurodzenia = models.DecimalField(max_digits=12, decimal_places=2)
 
     def __str__(self):
         return self.nazwa
     
 class kurs(models.Model):
-     nazwa = models.CharField(max_length=30)
-     students = models.ManyToManyField(Student)
+     nazwa = models.CharField(max_length=80)
+     students = models.ManyToManyField(Student,through='Rejestracja')
 
      def __str__(self):
         return self.nazwa
@@ -33,4 +35,9 @@ class Sklepik(models.Model):
         return self.nazwa
 
 
+class Rejestracja(models.Model):
+        Student = models.ForeignKey(Student, on_delete=models.CASCADE)
+        kurs = models.ForeignKey(kurs, on_delete=models.CASCADE)
+        date_Rejestracja = models.DateField()
+        Koncowa_ocena = models.CharField(max_length=1, blank=True, null=True)
 

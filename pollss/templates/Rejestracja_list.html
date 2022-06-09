@@ -1,0 +1,22 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="background-color:powderblue;">
+      
+
+<body>
+    <h1> Rejestracja </h1>
+
+    {% for Rejestracja in object_list %}
+        <li>{{Rejestracja.kurs}}</li>
+        <b><li> {{Rejestracja.Student}}</li></b>
+        <li>ocena końcowa: {{Rejestracja.Koncowa_ocena}}</li>
+    {% empty %}
+        <li>No Rejestracja yet.</li>
+    {% endfor %}
+</body>
+</html>

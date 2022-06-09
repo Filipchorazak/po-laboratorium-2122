@@ -7,7 +7,7 @@
     <h1> Student </h1>
 
     {% for Student in object_list %}
-        <li>{{Student.nazwa }}</li>
+        <li>{{Student.Imie }} {{Student.Nazwisko }}</li>
     {% empty %}
         <li>No Student yet.</li>
     {% endfor %}
